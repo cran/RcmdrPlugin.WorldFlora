@@ -1,0 +1,14 @@
+# modified from RcmdrPlugin.survival 1.2-1
+
+import(Rcmdr, WorldFlora)
+importFrom("grDevices", "palette")
+importFrom("graphics", "legend", "plot")
+importFrom(tcltk, tkfont.create, ttkprogressbar, tkwidget, setTkProgressBar, 
+    ttknotebook, tkadd, tkselect)
+
+exportPattern("^[^\\.]")
+
+# S3method(plot, coxph)
+# S3method(unfold, data.frame)
+
+
