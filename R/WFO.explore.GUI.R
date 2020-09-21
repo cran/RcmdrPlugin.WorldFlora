@@ -11,8 +11,20 @@ WFO.exploreGUI <- function(){
     optionsLFrame <- tkframe(optionsFrame)
     optionsRFrame <- tkframe(optionsFrame)
 
+    matchFrame <- tkframe(optionsLFrame)
+    matchVariable <- tclVar("1")
+    matchCheckBox <- ttkcheckbutton(matchFrame, variable = matchVariable)
+    
+    oneFrame <- tkframe(optionsLFrame)
+    oneVariable <- tclVar("0")
+    oneCheckBox <- ttkcheckbutton(oneFrame, variable = oneVariable)
+
+    urlFrame <- tkframe(optionsLFrame)
+    urlVariable <- tclVar("0")
+    urlCheckBox <- ttkcheckbutton(urlFrame, variable = urlVariable)
+
     browseFrame <- tkframe(optionsLFrame)
-    browseVariable <- tclVar("1")
+    browseVariable <- tclVar("0")
     browseCheckBox <- ttkcheckbutton(browseFrame, variable = browseVariable)
 
     synonymsFrame <- tkframe(optionsLFrame)
@@ -31,6 +43,12 @@ WFO.exploreGUI <- function(){
         TaxonValue <- tclvalue(taxonName)
         TaxonValue.gsub <- gsub(pattern=" ", replacement="_", TaxonValue)
 
+        matching <- FALSE
+        if (tclvalue(matchVariable) == 1) {matching <- TRUE}
+        oining <- FALSE
+        if (tclvalue(oneVariable) == 1) {oining <- TRUE}
+        urling <- FALSE
+        if (tclvalue(urlVariable) == 1) {urling <- TRUE}
         browse <- FALSE
         if (tclvalue(browseVariable) == 1) {browse <- TRUE}
         synonyms <- FALSE
@@ -39,6 +57,60 @@ WFO.exploreGUI <- function(){
         if (tclvalue(familyVariable) == 1) {family <- TRUE}
 
         .newActive <- paste(trim.blanks(TaxonValue), ".browse", sep="")
+
+        if (matching == TRUE) {
+        .newActive <- paste(TaxonValue.gsub, ".match", sep="")      
+        command <- paste("WFO.match('", TaxonValue, 
+            "', WFO.data=WFO.data)", sep="")
+        logger(paste(.newActive, " <- ", command, sep=""))
+        
+        if (tclvalue(onlyLogVariable) == 0) {
+            if (("WFO.data" %in% dataSets1) == FALSE) {
+                logger(paste("WARNING: First you must load WFO.data (Use WFO.download or WFO.remember)", sep=""))
+            }else{     
+                gassign(.newActive, justDoIt(command))
+                logger(paste("Results available in data set: ", .newActive, sep=""))
+                doItAndPrint(paste(.newActive))
+            }
+        }
+        
+        } # matching
+
+        if (oining == TRUE) {
+        .newActive <- paste(TaxonValue.gsub, ".one", sep="")      
+        command <- paste("WFO.one(WFO.match('", TaxonValue, 
+            "', WFO.data=WFO.data))", sep="")
+        logger(paste(.newActive, " <- ", command, sep=""))
+        
+        if (tclvalue(onlyLogVariable) == 0) {
+            if (("WFO.data" %in% dataSets1) == FALSE) {
+                logger(paste("WARNING: First you must load WFO.data (Use WFO.download or WFO.remember)", sep=""))
+            }else{     
+                gassign(.newActive, justDoIt(command))
+                logger(paste("Results available in data set: ", .newActive, sep=""))
+                doItAndPrint(paste(.newActive))
+            }
+        }
+        
+        } # oining
+
+        if (urling == TRUE) {
+        .newActive <- paste(TaxonValue.gsub, ".url", sep="")      
+        command <- paste("WFO.url(WFO.one(WFO.match('", TaxonValue, 
+            "', WFO.data=WFO.data)), browse=TRUE)", sep="")
+        logger(paste(.newActive, " <- ", command, sep=""))
+        
+        if (tclvalue(onlyLogVariable) == 0) {
+            if (("WFO.data" %in% dataSets1) == FALSE) {
+                logger(paste("WARNING: First you must load WFO.data (Use WFO.download or WFO.remember)", sep=""))
+            }else{     
+                gassign(.newActive, justDoIt(command))
+                logger(paste("Results available in data set: ", .newActive, sep=""))
+                doItAndPrint(paste(.newActive))
+            }
+        }
+        
+        } # urling
 
         if (browse == TRUE) {
         .newActive <- paste(TaxonValue.gsub, ".browse", sep="")      
@@ -102,6 +174,12 @@ WFO.exploreGUI <- function(){
     tkgrid(variablesFrame, sticky = "w")
     tkgrid(labelRcmdr(top, text=""))
 
+    tkgrid(matchCheckBox, labelRcmdr(matchFrame, text=gettextRcmdr("WFO.match")), sticky="w")
+    tkgrid(matchFrame, sticky="w")
+    tkgrid(oneCheckBox, labelRcmdr(oneFrame, text=gettextRcmdr("WFO.one")), sticky="w")
+    tkgrid(oneFrame, sticky="w")
+    tkgrid(urlCheckBox, labelRcmdr(urlFrame, text=gettextRcmdr("WFO.url")), sticky="w")
+    tkgrid(urlFrame, sticky="w")
     tkgrid(browseCheckBox, labelRcmdr(browseFrame, text=gettextRcmdr("browse")), sticky="w")
     tkgrid(browseFrame, sticky="w")
     tkgrid(synonymsCheckBox, labelRcmdr(synonymsFrame, text=gettextRcmdr("synonyms")), sticky="w")

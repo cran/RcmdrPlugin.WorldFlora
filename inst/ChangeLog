@@ -1,0 +1,30 @@
+
+WorldFlora versions
+
+	Note that a static copy of the Taxonomic Backbone data can be downloaded from:
+	http://www.worldfloraonline.org/downloadData. This can be done with function
+	WFO.download.
+
+	The suggested citation of the World Flora Online (WFO) is:
+	WFO ([Year]): World Flora Online. Version [Year].[Month]. Published on the Internet; 
+	http://www.worldfloraonline.org. Accessed on:[Date]".
+
+	The suggested citation of the WorldFlora and RcmdrPlugin.WorldFlora packages is:
+	Kindt, R. 2020. WorldFlora: An R package for exact and fuzzy matching of plant names 
+	against the World Flora Online taxonomic backbone data. Applications in Plant 
+	Sciences 8(9): e11388. 
+
+
+Version 1.1 (September 2020)
+
+	* In the Taxon lookup GUI, it is now also possible to use WFO.match, WFO.one and
+	WFO.url.
+	* A link is provided to a user manual on ResearchGate (
+	<https://www.researchgate.net/publication/342657019_WORLDFLORA_User_Guide_for_Graphical_User_Interface>).
+	* Citation info included (i.e., citation for WorldFlora package).
+
+
+Version 1.0 (July 2020)
+
+	* Package developed and submitted to CRAN
+

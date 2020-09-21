@@ -29,6 +29,10 @@
     item    WorldFloraMenu      separator       ""                                              ""				""			""
     item    WorldFloraMenu      command         "Export active data set..."                     exportDataSet               	"activeDataSetP()"	""
     item    WorldFloraMenu      command         "Save active data set as Excel file..."		exportExcelGUI			"activeDataSetP()" 	""
+    item    WorldFloraMenu      separator       ""                                              ""				""			""
+    item    WorldFloraMenu      command         "Help..."					helpWorldFlora			""			""
+    item    WorldFloraMenu      command         "Download User guide (ResearchGate)"		browseWFOmanual			""		 	""
+
 
     item    topMenu         	cascade         "WorldFlora"                                 	WorldFloraMenu			""          		"" 
 
