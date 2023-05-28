@@ -8,12 +8,14 @@ WFO.downloadGUI <- function(){
 
 WFO.rememberGUI <- function(){
 #    .activeDataSet <- ActiveDataSet()
+  logger(paste("Please be patient while the WFO data loads."))
     doItAndPrint(paste("WFO.remember()", sep=""))
     doItAndPrint(paste("str(WFO.data)", sep=""))
 }
 
 WFO.remember.chooseGUI <- function(){
 #    .activeDataSet <- ActiveDataSet()
+  logger(paste("Please be patient while the WFO data loads."))
     doItAndPrint(paste("WFO.remember(file.choose())", sep=""))
     doItAndPrint(paste("str(WFO.data)", sep=""))
 }

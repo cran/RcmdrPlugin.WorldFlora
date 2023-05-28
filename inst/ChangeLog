@@ -6,13 +6,22 @@ WorldFlora versions
 	WFO.download.
 
 	The suggested citation of the World Flora Online (WFO) is:
-	WFO ([Year]): World Flora Online. Version [Year].[Month]. Published on the Internet; 
+	WFO ([Year]): World Flora Online. Version [Year].[Month]. Published on the Internet;
 	http://www.worldfloraonline.org. Accessed on:[Date]".
 
 	The suggested citation of the WorldFlora and RcmdrPlugin.WorldFlora packages is:
-	Kindt, R. 2020. WorldFlora: An R package for exact and fuzzy matching of plant names 
-	against the World Flora Online taxonomic backbone data. Applications in Plant 
-	Sciences 8(9): e11388. 
+	Kindt, R. 2020. WorldFlora: An R package for exact and fuzzy matching of plant names
+	against the World Flora Online taxonomic backbone data. Applications in Plant
+	Sciences 8(9): e11388.
+
+
+Version 1.3 (May 2023)
+
+  * New menu option for WFO.match.fuzzyjoin()
+  * New menu option for WFO.acceptable.match()
+  * Added hyperlinks to my Rpub series, including a separate link to a January 2023 example script
+  of handling large data sets (https://rpubs.com/Roeland-KINDT/996500)
+  * Corrected error in the getting started menu option
 
 
 Version 1.1 (September 2020)

@@ -3,7 +3,9 @@
 \alias{WFO.downloadGUI}
 \alias{WFO.exploreGUI}
 \alias{WFO.matchGUI}
+\alias{WFO.match.fuzzyjoinGUI}
 \alias{WFO.oneGUI}
+\alias{WFO.acceptable.matchGUI}
 \alias{WFO.prepareGUI}
 \alias{WFO.remember.chooseGUI}
 \alias{WFO.rememberGUI}

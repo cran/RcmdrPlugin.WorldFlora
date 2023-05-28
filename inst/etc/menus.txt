@@ -3,36 +3,39 @@
 
 # last modified: 
 
-#   type    menu/item           operation/parent  label                                         command/menu                	activation		install?
+#   type    menu/item           operation/parent  label                                         		command/menu                	activation		install?
 
-    menu    WorldFloraMenu      topMenu         ""                                              ""				""			""
+    menu    WorldFloraMenu     topMenu         	""                                              	""				""			""
     item    WorldFloraMenu      command         "Getting started..."                  		WorldFlora.get.started		""			""
-    item    WorldFloraMenu      separator       ""                                              ""				""			""
+    item    WorldFloraMenu      separator       	""                                              	""				""			""
     item    WorldFloraMenu      command         "Change working directory..."                  	Setwd				""			""
 
 # copied from Rcmdr menus
     item    WorldFloraMenu      command         "Import active data set from text file..."	readDataSet			""			""
-    item    WorldFloraMenu      command         "Import active data set from Excel file..."     importExcel			""			""
-    item    WorldFloraMenu      command         "Select active data set..."                     selectActiveDataSet		"dataSetsP()"		""
+    item    WorldFloraMenu      command         "Import active data set from Excel file..."     	importExcel			""			""
+    item    WorldFloraMenu      command         "Select active data set..."                     	selectActiveDataSet		"dataSetsP()"		""
 #
 
-    item    WorldFloraMenu      separator       ""                                              ""				""			""
-    item    WorldFloraMenu      command         "WFO.download"                  		WFO.downloadGUI			""			""
-    item    WorldFloraMenu      command         "WFO.remember"                  		WFO.rememberGUI			""			""
-    item    WorldFloraMenu      command         "WFO.remember (choose file)"                  	WFO.remember.chooseGUI		""			""
-    item    WorldFloraMenu      separator       ""                                              ""				""			""
-    item    WorldFloraMenu      command         "WFO.prepare..."		                WFO.prepareGUI			"activeDataSetP()" 	""
+    item    WorldFloraMenu      separator       ""                                              		""				""			""
+    item    WorldFloraMenu      command         "WFO.download"                  		WFO.downloadGUI		""			""
+    item    WorldFloraMenu      command         "WFO.remember"                  		WFO.rememberGUI		""			""
+    item    WorldFloraMenu      command         "WFO.remember (choose file)"                  	WFO.remember.chooseGUI	""			""
+    item    WorldFloraMenu      separator       ""                                              		""				""			""
+    item    WorldFloraMenu      command         "WFO.prepare..."		                	WFO.prepareGUI		"activeDataSetP()" 	""
     item    WorldFloraMenu      command         "WFO.match..."		                  	WFO.matchGUI			"activeDataSetP()" 	""
+    item    WorldFloraMenu      command         "WFO.match.fuzzyjoin..."		            WFO.match.fuzzyjoinGUI		"activeDataSetP()" 	""
     item    WorldFloraMenu      command         "WFO.one..."		                  	WFO.oneGUI			"activeDataSetP()" 	""
-    item    WorldFloraMenu      separator       ""                                              ""				""			""
-    item    WorldFloraMenu      command         "Taxon lookup..."		                WFO.exploreGUI			""		 	""
-    item    WorldFloraMenu      separator       ""                                              ""				""			""
-    item    WorldFloraMenu      command         "Export active data set..."                     exportDataSet               	"activeDataSetP()"	""
+    item    WorldFloraMenu      command         "WFO.acceptable.match..."		            WFO.acceptable.matchGUI	"activeDataSetP()" 	""
+    item    WorldFloraMenu      separator       ""                                              		""				""			""
+    item    WorldFloraMenu      command         "Taxon lookup..."		                 	WFO.exploreGUI		""		 	""
+    item    WorldFloraMenu      separator       ""                                              		""				""			""
+    item    WorldFloraMenu      command         "Export active data set..."                     	exportDataSet               		"activeDataSetP()"	""
     item    WorldFloraMenu      command         "Save active data set as Excel file..."		exportExcelGUI			"activeDataSetP()" 	""
-    item    WorldFloraMenu      separator       ""                                              ""				""			""
+    item    WorldFloraMenu      separator       ""                                              		""				""			""
     item    WorldFloraMenu      command         "Help..."					helpWorldFlora			""			""
-    item    WorldFloraMenu      command         "Download User guide (ResearchGate)"		browseWFOmanual			""		 	""
+    item    WorldFloraMenu      command         "Download User guide (ResearchGate)"	browseWFOmanual		""		 	""
+    item    WorldFloraMenu      command         "Rpub (January 2023)"			browseRpub2023		""		 	""
+    item    WorldFloraMenu      command         "Rpub (all)"				browseRpub			""		 	""
 
-
-    item    topMenu         	cascade         "WorldFlora"                                 	WorldFloraMenu			""          		"" 
+    item    topMenu         	cascade         "WorldFlora"                                 	WorldFloraMenu		""          		"" 
 
